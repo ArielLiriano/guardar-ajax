@@ -1,6 +1,7 @@
 $(document).ready(function () {
   var form = document.getElementById("frmAjax");
-  $("#btnGuardar").click(function () {
+  $("#btnGuardar").click(function (e) {
+    e.preventDefault();
     var datos = $("#frmAjax").serialize();
     var validarF = validarFormulario();
 
@@ -22,7 +23,7 @@ $(document).ready(function () {
       alert("No deben de haber campos vaciós para guardar la información");
     }
 
-    return false;
+    // return false;
   });
 
   function validarFormulario() {
