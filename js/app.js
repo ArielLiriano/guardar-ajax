@@ -12,15 +12,28 @@ $(document).ready(function () {
         data: datos,
         success: function (respuesta) {
           if (respuesta == 1) {
-            alert("Datos agregados exitosamente!");
+            // alert("Datos agregados exitosamente!");
+            swal.fire({
+              title: "Datos agregados exitosamente",
+            });
             form.reset();
           } else {
-            alert("Error al registrar los Datos");
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "No fue posible registrar la información!",
+              footer: '<a href="">Intente otra vez!</a>',
+            });
           }
         },
       });
     } else {
-      alert("No deben de haber campos vaciós para guardar la información");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Todos los campos deben de estar llenos para guardar!",
+        footer: '<a href="">Tienes alguna pregunta?</a>',
+      });
     }
 
     // return false;
